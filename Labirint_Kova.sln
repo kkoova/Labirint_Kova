@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labirint_Kova", "Labirint_Kova\Labirint_Kova.csproj", "{145F5F23-1E56-40CC-95B0-B7C7789C550F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{145F5F23-1E56-40CC-95B0-B7C7789C550F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145F5F23-1E56-40CC-95B0-B7C7789C550F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145F5F23-1E56-40CC-95B0-B7C7789C550F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145F5F23-1E56-40CC-95B0-B7C7789C550F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {017337E2-A484-4AC2-957F-26CD69580FD6}
+	EndGlobalSection
+EndGlobal
