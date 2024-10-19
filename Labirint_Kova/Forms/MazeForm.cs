@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Labirint_Kova
+namespace Labirint_Kova.Forms
 {
-    public partial class Form1 : Form
+    public partial class MazeForm : Form
     {
-        public Form1()
+        public MazeForm()
         {
             InitializeComponent();
         }
