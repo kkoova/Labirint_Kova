@@ -1,4 +1,5 @@
-﻿using Labirint_Kova.Logic;
+﻿using Labirint_Kova.Forms;
+using Labirint_Kova.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,7 +63,8 @@ namespace Labirint_Kova
 
         private void StartBtn_Click(object sender, EventArgs e)
         {
-
+            MazeForm mazeForm = new MazeForm();
+            mazeForm.ShowDialog();
         }
 
         private void RotationTimer_Tick(object sender, EventArgs e)

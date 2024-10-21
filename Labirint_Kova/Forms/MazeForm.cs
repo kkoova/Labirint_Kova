@@ -15,6 +15,18 @@ namespace Labirint_Kova.Forms
         public MazeForm()
         {
             InitializeComponent();
+
+            Bitmap bitmap = new Bitmap("D:\\C#\\kkoova\\Labirint_Kova\\Labirint_Kova\\Resources\\block (0,3).png");
+            Graphics graphics = Graphics.FromImage(bitmap);
+            graphics.DrawImage(bitmap, 60, 10);
+        }
+
+        private void MazeForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
         }
     }
 }

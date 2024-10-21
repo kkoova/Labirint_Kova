@@ -94,10 +94,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\blocks\" />
+    <None Include="Resources\block %282,4%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MazePng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block %283,4%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block %283,0%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block %280,3%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block%283, 3, 3%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
