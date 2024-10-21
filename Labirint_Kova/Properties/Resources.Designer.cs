@@ -63,9 +63,49 @@ namespace Labirint_Kova.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap block__0_1_ {
+            get {
+                object obj = ResourceManager.GetObject("block (0,1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap block__0_2_ {
+            get {
+                object obj = ResourceManager.GetObject("block (0,2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap block__0_3_ {
             get {
                 object obj = ResourceManager.GetObject("block (0,3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap block__1_0_ {
+            get {
+                object obj = ResourceManager.GetObject("block (1,0)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap block__2_0_ {
+            get {
+                object obj = ResourceManager.GetObject("block (2,0)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
