@@ -59,10 +59,12 @@
       <DependentUpon>MazeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\GenerateMaze.cs" />
+    <Compile Include="Logic\MazeBuilder.cs" />
     <Compile Include="Logic\RotatablePictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Models\MazeBlock.cs" />
+    <Compile Include="Models\ColorMaze.cs" />
+    <Compile Include="Models\MazeBlocks.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">

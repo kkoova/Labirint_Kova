@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labirint_Kova.Models
 {
-    internal class MazeBlock
+    internal class MazeBlocks
     {
         /// <summary>
         /// Координаты углов блока
@@ -27,7 +27,7 @@ namespace Labirint_Kova.Models
         public bool IsVisible 
         { get; set; }
 
-        public MazeBlock(Point[] points, Color color)
+        public MazeBlocks(Point[] points, Color color)
         {
             Points = points;
             BlockColor = color;
