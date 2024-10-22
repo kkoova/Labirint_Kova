@@ -63,8 +63,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\MazeBlock.cs" />
-    <Compile Include="Models\PerspectiveBlock.cs" />
-    <Compile Include="Models\StaticBlock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">

@@ -13,13 +13,13 @@ namespace Labirint_Kova.Models
         /// Координаты углов блока
         /// </summary>
         public Point[] Points 
-        { get; protected set; }
+        { get; private set; }
 
         /// <summary>
         /// Цвет блока
         /// </summary>
         public Color BlockColor 
-        { get; protected set; }
+        { get; private set; }
 
         /// <summary>
         /// Флаг отображения
@@ -27,18 +27,11 @@ namespace Labirint_Kova.Models
         public bool IsVisible 
         { get; set; }
 
-        public MazeBlock(Color color)
+        public MazeBlock(Point[] points, Color color)
         {
+            Points = points;
             BlockColor = color;
             IsVisible = true;
-        }
-
-        public virtual void Draw(Graphics g)
-        {
-            if (IsVisible)
-            {
-                g.FillPolygon(new SolidBrush(BlockColor), Points);
-            }
         }
     }
 }
