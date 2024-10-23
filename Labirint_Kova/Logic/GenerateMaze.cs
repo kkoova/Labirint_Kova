@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Labirint_Kova.Logic
 {
     internal class GenerateMaze
     {
-        static readonly int[,] maze = new int[41, 21];
+        private readonly static int[,] maze = new int[11, 5];
 
         /// <summary>
         /// Генерация лабиринта
         /// </summary>
         public void GenerateNumerMaze()
         {
-            for (var y = 0; y < maze.GetLength(0); y++)
+            for (var y = 0; y < maze.GetLength(1); y++)
             {
-                for (var x = 0; x < maze.GetLength(1); x++)
+                for (var x = 0; x < maze.GetLength(0); x++)
                 {
                     maze[x, y] = 1;
                 }
@@ -59,6 +56,11 @@ namespace Labirint_Kova.Logic
                     stack.Pop();
                 }
             }
+        }
+
+        public int[,] GetMaze()
+        {
+            return maze;
         }
     }
 }

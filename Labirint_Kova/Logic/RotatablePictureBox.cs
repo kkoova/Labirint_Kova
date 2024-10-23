@@ -13,7 +13,7 @@ namespace Labirint_Kova.Logic
 
         public float RotationAngle
         {
-            get { return angle; }
+            get => angle;
             set
             {
                 angle = value;
@@ -37,8 +37,8 @@ namespace Labirint_Kova.Logic
 
             e.Graphics.TranslateTransform(-Width / 2.0f, -Height / 2.0f);
 
-            int offsetX = (Width - Image.Width) / 2;
-            int offsetY = (Height - Image.Height) / 2;
+            var offsetX = (Width - Image.Width) / 2;
+            var offsetY = (Height - Image.Height) / 2;
 
             e.Graphics.DrawImage(Image, offsetX, offsetY);
         }

@@ -16,6 +16,9 @@ namespace Labirint_Kova.Forms
 {
     public partial class MazeForm : Form
     {
+        private readonly GenerateMaze mazeGenerator;
+        private readonly Player player;
+        private readonly int[,] maze;
         private List<MazeBlocks> mazeBlocks;
         public MazeForm()
         {
@@ -25,6 +28,12 @@ namespace Labirint_Kova.Forms
 
             InitializeBlocks();
 
+            mazeGenerator = new GenerateMaze();
+            mazeGenerator.GenerateNumerMaze();
+            maze = mazeGenerator.GetMaze();
+
+            player = new Player(1, maze.GetLength(1) - 2);
+
         }
 
         /// <summary>
@@ -32,10 +41,10 @@ namespace Labirint_Kova.Forms
         /// </summary>
         private void InitializeBlocks()
         {
-            int blockSize = 450;
-            int centerX = (ClientSize.Width - blockSize) / 2;
-            int centerY = (ClientSize.Height - blockSize) / 2;
-            int formWidth = ClientSize.Width;
+            var blockSize = 450;
+            var centerX = (ClientSize.Width - blockSize) / 2;
+            var centerY = (ClientSize.Height - blockSize) / 2;
+            var formWidth = ClientSize.Width;
 
             mazeBlocks = MazeBuilder.CreateMazeBlocks(centerX, centerY, blockSize, formWidth);
         }

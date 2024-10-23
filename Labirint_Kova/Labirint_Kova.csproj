@@ -63,8 +63,13 @@
     <Compile Include="Logic\RotatablePictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Models\Blocks\CeilingSection.cs" />
+    <Compile Include="Models\Blocks\DiagonalSection.cs" />
+    <Compile Include="Models\Blocks\FloorSection.cs" />
+    <Compile Include="Models\Blocks\StaticSection.cs" />
     <Compile Include="Models\ColorMaze.cs" />
     <Compile Include="Models\MazeBlocks.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
@@ -78,6 +83,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
