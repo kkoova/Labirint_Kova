@@ -33,6 +33,7 @@ namespace Labirint_Kova.Forms
             maze = mazeGenerator.GetMaze();
 
             player = new Player(1, maze.GetLength(1) - 2);
+            player.GetVisibleArea(maze);
 
         }
 

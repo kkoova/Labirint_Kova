@@ -30,7 +30,7 @@ namespace Labirint_Kova.Models
 
         public int[,] GetVisibleArea(int[,] maze)
         {
-            var visibleArea = new int[5, 3];
+            var visibleArea = new int[4, 3];
 
             for (var y = 0; y < 5; y++)
             {

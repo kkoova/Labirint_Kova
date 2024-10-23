@@ -37,6 +37,14 @@ namespace Labirint_Kova.Logic
                 new DiagonalSection(centerX, centerY, blockSize, formWidth, ColorMaze.MustardYellow, 6),
         };
 
+            foreach (var block in mazeBlocks)
+            {
+                if (!block.IsVisible)
+                {
+                    block.IsVisible = false;
+                }
+
+            }
             return mazeBlocks;
         }
     }
