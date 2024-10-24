@@ -32,7 +32,7 @@ namespace Labirint_Kova.Models
         {
             var visibleArea = new int[4, 3];
 
-            for (var y = 0; y < 5; y++)
+            for (var y = 0; y < 4; y++)
             {
                 for (var x = -1; x <= 1; x++)
                 {
