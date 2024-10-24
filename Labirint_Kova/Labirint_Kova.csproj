@@ -59,6 +59,7 @@
       <DependentUpon>MazeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\GenerateMaze.cs" />
+    <Compile Include="Logic\MazeBlocksVisibility.cs" />
     <Compile Include="Logic\MazeBuilder.cs" />
     <Compile Include="Logic\RotatablePictureBox.cs">
       <SubType>Component</SubType>
@@ -67,6 +68,7 @@
     <Compile Include="Models\Blocks\DiagonalSection.cs" />
     <Compile Include="Models\Blocks\FloorSection.cs" />
     <Compile Include="Models\Blocks\StaticSection.cs" />
+    <Compile Include="Models\Blocks\VisBlocks\Block_2_3.cs" />
     <Compile Include="Models\ColorMaze.cs" />
     <Compile Include="Models\MazeBlocks.cs" />
     <Compile Include="Models\Player.cs" />
