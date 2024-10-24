@@ -31,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -68,6 +69,11 @@
     <Compile Include="Models\Blocks\DiagonalSection.cs" />
     <Compile Include="Models\Blocks\FloorSection.cs" />
     <Compile Include="Models\Blocks\StaticSection.cs" />
+    <Compile Include="Models\Blocks\VisBlocks\Block_4_3.cs" />
+    <Compile Include="Models\Blocks\VisBlocks\Block_4_1.cs" />
+    <Compile Include="Models\Blocks\VisBlocks\Block_3_3.cs" />
+    <Compile Include="Models\Blocks\VisBlocks\Block_3_1.cs" />
+    <Compile Include="Models\Blocks\VisBlocks\Block_2_1.cs" />
     <Compile Include="Models\Blocks\VisBlocks\Block_2_3.cs" />
     <Compile Include="Models\ColorMaze.cs" />
     <Compile Include="Models\MazeBlocks.cs" />
