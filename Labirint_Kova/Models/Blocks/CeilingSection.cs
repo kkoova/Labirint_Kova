@@ -18,8 +18,8 @@ namespace Labirint_Kova.Models.Blocks
                     return new Point[]
                     {
                     new Point(centerX - blockSize / 4, centerY - blockSize / 4),
-                    new Point(centerX + blockSize + blockSize / 4, centerY - blockSize / 4),
-                    new Point(centerX + blockSize, centerY),
+                    new Point(formWidth, centerY - blockSize / 4),
+                    new Point(formWidth, centerY),
                     new Point(centerX, centerY)
                     };
                 case 2:

@@ -16,37 +16,63 @@ namespace Labirint_Kova.Logic
         /// <param name="visibleArea">Двумерный массив, где 1 — блок видим, 0 — блок невидим</param>
         public static void UpdateMazeBlocksVisibility(List<MazeBlocks> mazeBlocks, int[,] visibleArea)
         {
-            for (int i = 0; i < mazeBlocks.Count; i++)
+            if (visibleArea[0, 0] == 0)
             {
-                int x = GetBlockX(i);
-                int y = GetBlockY(i);
-
-                if (x >= 0 && x < visibleArea.GetLength(0) && y >= 0 && y < visibleArea.GetLength(1))
-                {
-                    // Если в visibleArea 1, то блок видим, иначе невидим
-                    mazeBlocks[i].IsVisible = visibleArea[x, y] == 1;
-                }
-                else
-                {
-                    mazeBlocks[i].IsVisible = false; // Если блок за пределами видимой области
-                }
+                mazeBlocks[8].IsVisible = false;
+            }
+            if (visibleArea[0, 1] == 0)
+            {
+                mazeBlocks[6].IsVisible = false;
+            }
+            if (visibleArea[0, 2] == 0)
+            {
+                mazeBlocks[7].IsVisible = false;
+            }
+            if (visibleArea[1, 0] == 0)
+            {
+                mazeBlocks[11].IsVisible = false;
+                mazeBlocks[12].IsVisible = false;
+            }
+            if (visibleArea[1, 1] == 0)
+            {
+                //mazeBlocks[11].IsVisible = false;
+                //mazeBlocks[12].IsVisible = false;
+            }
+            if (visibleArea[1, 2] == 0)
+            {
+                mazeBlocks[10].IsVisible = false;
+                mazeBlocks[9].IsVisible = false;
+            }
+            if (visibleArea[2, 0] == 0)
+            {
+                mazeBlocks[13].IsVisible = false;
+                mazeBlocks[14].IsVisible = false;
+            }
+            if (visibleArea[2, 1] == 0)
+            {
+                //mazeBlocks[11].IsVisible = false;
+                //mazeBlocks[12].IsVisible = false;
+            }
+            if (visibleArea[2, 2] == 0)
+            {
+                mazeBlocks[15].IsVisible = false;
+                mazeBlocks[16].IsVisible = false;
+            }
+            if (visibleArea[3, 0] == 0)
+            {
+                mazeBlocks[17].IsVisible = false;
+                mazeBlocks[18].IsVisible = false;
+            }
+            if (visibleArea[3, 1] == 0)
+            {
+                //mazeBlocks[11].IsVisible = false;
+                //mazeBlocks[12].IsVisible = false;
+            }
+            if (visibleArea[3, 2] == 0)
+            {
+                mazeBlocks[19].IsVisible = false;
+                mazeBlocks[20].IsVisible = false;
             }
         }
-
-        // Вспомогательный метод для получения координат X
-        private static int GetBlockX(int index)
-        {
-            // Логика для получения X-координаты блока
-            // Можно подстроить под нужную структуру данных
-            return index % 11; // Пример, где 41 — ширина лабиринта
-        }
-
-        // Вспомогательный метод для получения координат Y
-        private static int GetBlockY(int index)
-        {
-            // Логика для получения Y-координаты блока
-            return index / 5; // Пример, где 41 — ширина лабиринта
-        }
     }
-
 }

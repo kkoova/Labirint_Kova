@@ -66,7 +66,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\Blocks\CeilingSection.cs" />
-    <Compile Include="Models\Blocks\DiagonalSection.cs" />
     <Compile Include="Models\Blocks\FloorSection.cs" />
     <Compile Include="Models\Blocks\StaticSection.cs" />
     <Compile Include="Models\Blocks\VisBlocks\Block_4_3.cs" />

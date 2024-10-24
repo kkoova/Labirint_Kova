@@ -65,7 +65,10 @@ namespace Labirint_Kova.Forms
             {
                 using (var brush = new SolidBrush(block.BlockColor))
                 {
-                    e.Graphics.FillPolygon(brush, block.Points);
+                    if (block.IsVisible)
+                    {
+                        e.Graphics.FillPolygon(brush, block.Points);
+                    }
                 }
             }
         }
