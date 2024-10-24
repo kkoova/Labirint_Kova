@@ -22,7 +22,7 @@ namespace Labirint_Kova.Models.Player
         }
 
         /// <summary>
-        /// Движение игрока и проверка на "финал"
+        /// Движение игрока
         /// </summary>
         /// <param name="dx">Путь X</param>
         /// <param name="dy">Путь Y</param>
@@ -35,15 +35,6 @@ namespace Labirint_Kova.Models.Player
             {
                 player.X = newX;
                 player.Y = newY;
-            }
-
-            if (newX == maze[1, maze.GetLength(1) - 1])
-            {
-                if (MessageBox.Show("Поздравляю!", "Вы прошли лабиринт!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    == DialogResult.OK)
-                {
-                    Application.Exit();
-                }
             }
         }
 
