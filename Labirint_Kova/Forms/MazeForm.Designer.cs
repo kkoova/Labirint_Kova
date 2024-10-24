@@ -41,7 +41,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MazeForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MazeForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MazeForm_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MazeForm_KeyDown);
             this.ResumeLayout(false);

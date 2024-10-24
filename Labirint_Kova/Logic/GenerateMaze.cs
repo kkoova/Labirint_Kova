@@ -5,7 +5,7 @@ namespace Labirint_Kova.Logic
 {
     internal class GenerateMaze
     {
-        private readonly static int[,] maze = new int[11, 5];
+        private readonly static int[,] maze = new int[41, 21];
 
         /// <summary>
         /// Генерация лабиринта

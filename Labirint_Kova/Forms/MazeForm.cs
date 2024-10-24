@@ -1,7 +1,6 @@
 ﻿using Labirint_Kova.Logic;
 using Labirint_Kova.Models;
 using Labirint_Kova.Models.Player;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -18,6 +17,12 @@ namespace Labirint_Kova.Forms
         private int[,] visibleArea;
 
         private List<MazeBlocks> mazeBlocks;
+
+        /// <summary>
+        /// Конструктор формы лабиринта.
+        /// Инициализирует компоненты формы и задает начальные параметры лабиринта,
+        /// игрока, блока видимости и системы управления.
+        /// </summary>
         public MazeForm()
         {
             InitializeComponent();
@@ -28,7 +33,7 @@ namespace Labirint_Kova.Forms
             mazeGenerator.GenerateNumerMaze();
             maze = mazeGenerator.GetMaze();
 
-            player = new Player(1, maze.GetLength(1) - 1);
+            player = new Player(1, maze.GetLength(1) - 2);
             playerController = new PlayerController(player, maze);
             visibleArea = player.GetVisibleArea(maze);
 
@@ -43,11 +48,18 @@ namespace Labirint_Kova.Forms
             var blockSize = 450;
             var centerX = (ClientSize.Width - blockSize) / 2;
             var centerY = (ClientSize.Height - blockSize) / 2;
-            var formWidth = ClientSize.Width;
+            var formWidth = ClientSize.Width + 40;
 
             mazeBlocks = MazeBuilder.CreateMazeBlocks(centerX, centerY, blockSize, formWidth, visibleArea);
         }
 
+        /// <summary>
+        /// Обработчик события нажатия клавиш.
+        /// Отвечает за передвижение игрока по лабиринту в зависимости от нажатой клавиши.
+        /// Проверяет возможные направления движения и обновляет видимую область лабиринта.
+        /// </summary>
+        /// <param name="sender">Источник события (форма)</param>
+        /// <param name="e">Аргументы события</param>
         private void MazeForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -60,10 +72,10 @@ namespace Labirint_Kova.Forms
             switch (e.KeyCode)
             {
                 case Keys.W:
-                    dy = -1;
+                    dy = 1;
                     break;
                 case Keys.S:
-                    dy = 1;
+                    dy = -1;
                     break;
                 case Keys.A:
                     dx = -1;
@@ -78,16 +90,16 @@ namespace Labirint_Kova.Forms
             playerController.Move(dx, dy);
             visibleArea = player.GetVisibleArea(maze);
             MazeBlocksVisibility.UpdateMazeBlocksVisibility(mazeBlocks, visibleArea);
+            Invalidate();
         }
 
-        private void MazeForm_Load(object sender, EventArgs e)
-        {
-            foreach (PictureBox picture in Controls)
-            {
-                picture.BackColor = Color.Transparent;
-            }
-        }
-
+        /// <summary>
+        /// Обработчик события рисования формы.
+        /// Отвечает за отрисовку элементов лабиринта, включая видимые блоки и игрока.
+        /// Обновляет графику на экране в зависимости от текущего состояния видимости блоков.
+        /// </summary>
+        /// <param name="sender">Источник события</param>
+        /// <param name="e">Аргументы события</param>
         private void MazeForm_Paint(object sender, PaintEventArgs e)
         {
             foreach (var block in mazeBlocks)

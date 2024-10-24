@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Labirint_Kova.Models;
 
 namespace Labirint_Kova.Logic
 {
+    /// <summary>
+    /// Перевод блоков в видимое и невидимое состояние
+    /// </summary>
     public class MazeBlocksVisibility
     {
         /// <summary>
-        /// Обновлене видимости блоков на основе области видимости
+        /// Обновление видимости блоков на основе области видимости
         /// </summary>
         /// <param name="mazeBlocks">Список всех блоков</param>
         /// <param name="visibleArea">Двумерный массив, где 1 — блок видим, 0 — блок невидим</param>
@@ -18,62 +17,46 @@ namespace Labirint_Kova.Logic
         {
             AllVisible(mazeBlocks);
 
-            if (visibleArea[0, 0] == 0)
+            var blockMapping = new int[,]
             {
-                mazeBlocks[8].IsVisible = false;
-            }
-            if (visibleArea[0, 1] == 0)
+                { 8, 6, 7 },
+                { 11, 13, 10 },
+                { 15, 18, 17 },
+                { 20, 23, 22 },
+            };
+
+            var adjacentBlocks = new Dictionary<int, int[]>
             {
-                mazeBlocks[6].IsVisible = false;
-            }
-            if (visibleArea[0, 2] == 0)
+                { 11, new[] { 12 } },
+                { 10, new[] { 9 } },
+                { 15, new[] { 14 } },
+                { 17, new[] { 16 } }
+            };
+
+            for (var y = 0; y < visibleArea.GetLength(0); y++)
             {
-                mazeBlocks[7].IsVisible = false;
-            }
-            if (visibleArea[1, 0] == 0)
-            {
-                mazeBlocks[11].IsVisible = false;
-                mazeBlocks[12].IsVisible = false;
-            }
-            if (visibleArea[1, 1] == 0)
-            {
-                mazeBlocks[13].IsVisible = false;
-            }
-            if (visibleArea[1, 2] == 0)
-            {
-                mazeBlocks[10].IsVisible = false;
-                mazeBlocks[9].IsVisible = false;
-            }
-            if (visibleArea[2, 0] == 0)
-            {
-                mazeBlocks[15].IsVisible = false;
-                mazeBlocks[14].IsVisible = false;
-            }
-            if (visibleArea[2, 1] == 0)
-            {
-                mazeBlocks[18].IsVisible = false;
-            }
-            if (visibleArea[2, 2] == 0)
-            {
-                mazeBlocks[17].IsVisible = false;
-                mazeBlocks[16].IsVisible = false;
-            }
-            if (visibleArea[3, 0] == 0)
-            {
-                mazeBlocks[19].IsVisible = false;
-                mazeBlocks[20].IsVisible = false;
-            }
-            if (visibleArea[3, 1] == 0)
-            {
-                mazeBlocks[23].IsVisible = false;
-            }
-            if (visibleArea[3, 2] == 0)
-            {
-                mazeBlocks[21].IsVisible = false;
-                mazeBlocks[22].IsVisible = false;
+                for (var x = 0; x < visibleArea.GetLength(1); x++)
+                {
+                    if (visibleArea[y, x] == 0)
+                    {
+                        mazeBlocks[blockMapping[y, x]].IsVisible = false;
+
+                        if (adjacentBlocks.ContainsKey(blockMapping[y, x]))
+                        {
+                            foreach (var adjacentIndex in adjacentBlocks[blockMapping[y, x]])
+                            {
+                                mazeBlocks[adjacentIndex].IsVisible = false;
+                            }
+                        }
+                    }
+                }
             }
         }
 
+        /// <summary>
+        /// Перевод всех блоков в видимое состояние
+        /// </summary>
+        /// <param name="mazeBlocks">Список всех блоков</param>
         public static void AllVisible(List<MazeBlocks> mazeBlocks)
         {
             foreach (var blocks in mazeBlocks)
