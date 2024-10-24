@@ -6,9 +6,16 @@ using System.Windows.Forms;
 
 namespace Labirint_Kova
 {
+    /// <summary>
+    /// Начальная форма
+    /// </summary>
     public partial class MainForm : Form
     {
         private RotatablePictureBox rotatingPictureBox;
+
+        /// <summary>
+        /// Инициализация формы
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -16,6 +23,9 @@ namespace Labirint_Kova
             TimerIn();
         }
 
+        /// <summary>
+        /// Настройка таймера
+        /// </summary>
         private void TimerIn()
         {
             rotationTimer.Interval = 30;
@@ -23,6 +33,9 @@ namespace Labirint_Kova
             rotationTimer.Start();
         }
 
+        /// <summary>
+        /// Создание изображения
+        /// </summary>
         private void ImageIn()
         {
             rotatingPictureBox = new RotatablePictureBox
@@ -34,11 +47,18 @@ namespace Labirint_Kova
 
             Controls.Add(rotatingPictureBox);
         }
+
+        /// <summary>
+        /// Выход из приложение по нажатию кнопки
+        /// </summary>
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Изменение цвета текста по наведению мыши
+        /// </summary>
         private void Button_MouseEnter(object sender, EventArgs e)
         {
             if (sender is Label button)
@@ -47,6 +67,9 @@ namespace Labirint_Kova
             }
         }
 
+        /// <summary>
+        /// Изменение цвета текста по покиданию мыши
+        /// </summary>
         private void Button_MouseLeave(object sender, EventArgs e)
         {
             if (sender is Label button)
@@ -55,12 +78,18 @@ namespace Labirint_Kova
             }
         }
 
+        /// <summary>
+        /// Создание новой формы
+        /// </summary>
         private void StartBtn_Click(object sender, EventArgs e)
         {
             var mazeForm = new MazeForm();
             mazeForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Событие таймера
+        /// </summary>
         private void RotationTimer_Tick(object sender, EventArgs e)
         {
             rotatingPictureBox.RotationAngle += 0.02f;

@@ -2,6 +2,9 @@
 
 namespace Labirint_Kova.Models
 {
+    /// <summary>
+    /// Создание кастомных цветов
+    /// </summary>
     public static class ColorMaze
     {
         public readonly static Color DarkBrown = Color.FromArgb(131, 146, 10); // #83920A

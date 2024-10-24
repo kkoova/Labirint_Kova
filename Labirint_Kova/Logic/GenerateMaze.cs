@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Labirint_Kova.Logic
 {
+    /// <summary>
+    /// Создание лабиринта и его вывод
+    /// </summary>
     internal class GenerateMaze
     {
         private readonly static int[,] maze = new int[41, 21];
@@ -58,6 +61,10 @@ namespace Labirint_Kova.Logic
             }
         }
 
+        /// <summary>
+        /// Возвращает лабиринт
+        /// </summary>
+        /// <returns>Лабиринт</returns>
         public int[,] GetMaze()
         {
             return maze;

@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Labirint_Kova.Forms
 {
+    /// <summary>
+    /// Форма игры лабиринта
+    /// </summary>
     public partial class MazeForm : Form
     {
         private readonly GenerateMaze mazeGenerator;
@@ -58,8 +61,6 @@ namespace Labirint_Kova.Forms
         /// Отвечает за передвижение игрока по лабиринту в зависимости от нажатой клавиши.
         /// Проверяет возможные направления движения и обновляет видимую область лабиринта.
         /// </summary>
-        /// <param name="sender">Источник события (форма)</param>
-        /// <param name="e">Аргументы события</param>
         private void MazeForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -98,8 +99,6 @@ namespace Labirint_Kova.Forms
         /// Отвечает за отрисовку элементов лабиринта, включая видимые блоки и игрока.
         /// Обновляет графику на экране в зависимости от текущего состояния видимости блоков.
         /// </summary>
-        /// <param name="sender">Источник события</param>
-        /// <param name="e">Аргументы события</param>
         private void MazeForm_Paint(object sender, PaintEventArgs e)
         {
             foreach (var block in mazeBlocks)

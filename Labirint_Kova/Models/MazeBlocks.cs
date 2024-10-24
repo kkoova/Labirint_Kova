@@ -22,6 +22,11 @@ namespace Labirint_Kova.Models
         public bool IsVisible
         { get; set; }
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="MazeBlocks"/> с заданными точками и цветом
+        /// </summary>
+        /// <param name="points">Массив точек, определяющий форму блока</param>
+        /// <param name="color">Цвет блока</param>
         public MazeBlocks(Point[] points, Color color)
         {
             Points = points;

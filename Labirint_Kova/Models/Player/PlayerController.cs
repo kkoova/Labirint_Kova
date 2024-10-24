@@ -10,6 +10,11 @@ namespace Labirint_Kova.Models.Player
         private readonly Player player;
         private readonly int[,] maze;
 
+        /// <summary>
+        /// Контролер
+        /// </summary>
+        /// <param name="player">Игрок</param>
+        /// <param name="maze">Лабиринт</param>
         public PlayerController(Player player, int[,] maze)
         {
             this.player = player;
