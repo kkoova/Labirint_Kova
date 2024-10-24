@@ -28,13 +28,13 @@ namespace Labirint_Kova.Logic
                 new FloorSection(formWidth, centerY, blockSize, 2, ColorMaze.MustardYellow),
                 new FloorSection(formWidth, centerY, blockSize, 3, ColorMaze.BrightLime),
 
-                new CeilingSection(formWidth, centerX, centerY, blockSize, 1, ColorMaze.LeafGreen),
-                new CeilingSection(formWidth, centerX, centerY, blockSize, 2, ColorMaze.OliveYellow),
-                new CeilingSection(formWidth, centerX, centerY, blockSize, 3, ColorMaze.SpringGreen),
+                new CeilingSection(formWidth, centerY, blockSize, 1, ColorMaze.LeafGreen),
+                new CeilingSection(formWidth, centerY, blockSize, 2, ColorMaze.OliveYellow),
+                new CeilingSection(formWidth, centerY, blockSize, 3, ColorMaze.SpringGreen),
 
-                new StaticSection(centerX, centerY, blockSize, formWidth, ColorMaze.DarkBrown, 1),
-                new StaticSection(centerX, centerY, blockSize, formWidth, ColorMaze.DarkBrown, 2),
-                new StaticSection(centerX, centerY, blockSize, formWidth, ColorMaze.DarkBrown, 3),
+                new StaticSection(centerX, centerY, blockSize, ColorMaze.DarkBrown, 1),
+                new StaticSection(centerX, centerY, blockSize, ColorMaze.DarkBrown, 2),
+                new StaticSection(centerX, centerY, blockSize, ColorMaze.DarkBrown, 3),
 
                 new Block_2_3(centerX, centerY, blockSize, ColorMaze.LeafGreen, 1),
                 new Block_2_3(centerX, centerY, blockSize, ColorMaze.OliveGreen, 2),
@@ -42,7 +42,7 @@ namespace Labirint_Kova.Logic
                 new Block_2_1(centerX, centerY, blockSize, ColorMaze.LeafGreen, 1),
                 new Block_2_1(centerX, centerY, blockSize, ColorMaze.OliveGreen, 2),
 
-                new StaticSection(centerX, centerY, blockSize, formWidth, ColorMaze.LeafGreen, 4),
+                new StaticSection(centerX, centerY, blockSize, ColorMaze.LeafGreen, 4),
 
                 new Block_3_1(centerX, centerY, blockSize, ColorMaze.LeafGreen, 1),
                 new Block_3_1(centerX, centerY, blockSize, ColorMaze.LimeGreen, 2),
@@ -50,15 +50,15 @@ namespace Labirint_Kova.Logic
                 new Block_3_3(centerX, centerY, blockSize, formWidth, ColorMaze.LeafGreen, 1),
                 new Block_3_3(centerX, centerY, blockSize, formWidth, ColorMaze.LimeGreen, 2),
 
-                new StaticSection(centerX, centerY, blockSize, formWidth, ColorMaze.LeafGreen, 5),
+                new StaticSection(centerX, centerY, blockSize, ColorMaze.LeafGreen, 5),
 
-                new Block_4_1(centerX, centerY, blockSize, formWidth, Color.Black, 1),
-                new Block_4_1(centerX, centerY, blockSize, formWidth, ColorMaze.MustardYellow, 2),
+                new Block_4_1(centerX, centerY, blockSize, Color.Black, 1),
+                new Block_4_1(centerX, centerY, blockSize, ColorMaze.MustardYellow, 2),
 
                 new Block_4_3(centerX, centerY, blockSize, formWidth,  Color.Black, 1),
                 new Block_4_3(centerX, centerY, blockSize, formWidth,  ColorMaze.MustardYellow, 2),
 
-                new StaticSection(centerX, centerY, blockSize, formWidth, ColorMaze.BrightLime, 6),
+                new StaticSection(centerX, centerY, blockSize, ColorMaze.BrightLime, 6),
         };
 
             MazeBlocksVisibility.UpdateMazeBlocksVisibility(mazeBlocks, visibleArea);
