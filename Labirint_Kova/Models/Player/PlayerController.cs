@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Labirint_Kova.Models.Player
+﻿namespace Labirint_Kova.Models.Player
 {
     /// <summary>
     /// Контролер игрока
