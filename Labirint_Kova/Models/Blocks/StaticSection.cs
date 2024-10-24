@@ -38,6 +38,30 @@ namespace Labirint_Kova.Models.Blocks
                     new Point(centerX - blockSize, centerY + blockSize),
                     new Point(centerX, centerY + blockSize)
                     };
+                case 4:
+                    return new Point[]
+                    {
+                    new Point(centerX - blockSize - blockSize / 4, centerY - blockSize / 4),
+                    new Point(centerX + blockSize + blockSize / 4, centerY - blockSize / 4),
+                    new Point(centerX + blockSize + blockSize / 4, centerY + blockSize + blockSize / 4),
+                    new Point(centerX - blockSize / 4, centerY + blockSize + blockSize / 4)
+                    };
+                case 5:
+                    return new Point[]
+                    {
+                    new Point(centerX + blockSize + blockSize / 4 * 2, centerY - blockSize / 4 * 2),
+                    new Point(centerX - blockSize / 4 * 2, centerY - blockSize / 4 * 2),
+                    new Point(centerX - blockSize / 4 * 2, centerY + blockSize + blockSize / 4 * 2),
+                    new Point(centerX + blockSize + blockSize / 4 * 2, centerY + blockSize + blockSize / 4 * 2)
+                    };
+                case 6:
+                    return new Point[]
+                    {
+                    new Point(centerX + blockSize + blockSize / 4 * 3, centerY - blockSize / 4 * 3),
+                    new Point(centerX - blockSize / 4 * 3, centerY - blockSize / 4 * 3),
+                    new Point(centerX - blockSize / 4 * 3, centerY + blockSize + blockSize / 4 * 3),
+                    new Point(centerX + blockSize + blockSize / 4 * 3, centerY + blockSize + blockSize / 4 * 3)
+                    };
                 default:
                     throw new ArgumentException("Invalid section number");
             }

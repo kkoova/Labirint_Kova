@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Labirint_Kova.Models
+﻿namespace Labirint_Kova.Models.Player
 {
     public class Player
     {
@@ -15,17 +9,6 @@ namespace Labirint_Kova.Models
         {
             X = startX;
             Y = startY;
-        }
-
-        public void Move(int dx, int dy, int[,] maze)
-        {
-            var newX = X + dx;
-            var newY = Y + dy;
-            if (newX >= 0 && newX < maze.GetLength(0) && newY >= 0 && newY < maze.GetLength(1) && maze[newX, newY] == 0)
-            {
-                X = newX;
-                Y = newY;
-            }
         }
 
         public int[,] GetVisibleArea(int[,] maze)

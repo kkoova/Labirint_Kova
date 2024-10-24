@@ -76,7 +76,8 @@
     <Compile Include="Models\Blocks\VisBlocks\Block_2_3.cs" />
     <Compile Include="Models\ColorMaze.cs" />
     <Compile Include="Models\MazeBlocks.cs" />
-    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Player\Player.cs" />
+    <Compile Include="Models\Player\PlayerController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">

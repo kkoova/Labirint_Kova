@@ -16,6 +16,8 @@ namespace Labirint_Kova.Logic
         /// <param name="visibleArea">Двумерный массив, где 1 — блок видим, 0 — блок невидим</param>
         public static void UpdateMazeBlocksVisibility(List<MazeBlocks> mazeBlocks, int[,] visibleArea)
         {
+            AllVisible(mazeBlocks);
+
             if (visibleArea[0, 0] == 0)
             {
                 mazeBlocks[8].IsVisible = false;
@@ -35,8 +37,7 @@ namespace Labirint_Kova.Logic
             }
             if (visibleArea[1, 1] == 0)
             {
-                //mazeBlocks[11].IsVisible = false;
-                //mazeBlocks[12].IsVisible = false;
+                mazeBlocks[13].IsVisible = false;
             }
             if (visibleArea[1, 2] == 0)
             {
@@ -45,33 +46,39 @@ namespace Labirint_Kova.Logic
             }
             if (visibleArea[2, 0] == 0)
             {
-                mazeBlocks[13].IsVisible = false;
+                mazeBlocks[15].IsVisible = false;
                 mazeBlocks[14].IsVisible = false;
             }
             if (visibleArea[2, 1] == 0)
             {
-                //mazeBlocks[11].IsVisible = false;
-                //mazeBlocks[12].IsVisible = false;
+                mazeBlocks[18].IsVisible = false;
             }
             if (visibleArea[2, 2] == 0)
             {
-                mazeBlocks[15].IsVisible = false;
+                mazeBlocks[17].IsVisible = false;
                 mazeBlocks[16].IsVisible = false;
             }
             if (visibleArea[3, 0] == 0)
             {
-                mazeBlocks[17].IsVisible = false;
-                mazeBlocks[18].IsVisible = false;
+                mazeBlocks[19].IsVisible = false;
+                mazeBlocks[20].IsVisible = false;
             }
             if (visibleArea[3, 1] == 0)
             {
-                //mazeBlocks[11].IsVisible = false;
-                //mazeBlocks[12].IsVisible = false;
+                mazeBlocks[23].IsVisible = false;
             }
             if (visibleArea[3, 2] == 0)
             {
-                mazeBlocks[19].IsVisible = false;
-                mazeBlocks[20].IsVisible = false;
+                mazeBlocks[21].IsVisible = false;
+                mazeBlocks[22].IsVisible = false;
+            }
+        }
+
+        public static void AllVisible(List<MazeBlocks> mazeBlocks)
+        {
+            foreach (var blocks in mazeBlocks)
+            {
+                blocks.IsVisible = true;
             }
         }
     }

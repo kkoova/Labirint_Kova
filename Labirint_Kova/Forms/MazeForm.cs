@@ -1,5 +1,6 @@
 ﻿using Labirint_Kova.Logic;
 using Labirint_Kova.Models;
+using Labirint_Kova.Models.Player;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,8 +11,12 @@ namespace Labirint_Kova.Forms
     public partial class MazeForm : Form
     {
         private readonly GenerateMaze mazeGenerator;
+        private readonly PlayerController playerController;
         private readonly Player player;
+
         private readonly int[,] maze;
+        private int[,] visibleArea;
+
         private List<MazeBlocks> mazeBlocks;
         public MazeForm()
         {
@@ -19,15 +24,15 @@ namespace Labirint_Kova.Forms
 
             DoubleBuffered = true;
 
-            InitializeBlocks();
-
             mazeGenerator = new GenerateMaze();
             mazeGenerator.GenerateNumerMaze();
             maze = mazeGenerator.GetMaze();
 
-            player = new Player(1, maze.GetLength(1) - 2);
-            player.GetVisibleArea(maze);
+            player = new Player(1, maze.GetLength(1) - 1);
+            playerController = new PlayerController(player, maze);
+            visibleArea = player.GetVisibleArea(maze);
 
+            InitializeBlocks();
         }
 
         /// <summary>
@@ -40,7 +45,7 @@ namespace Labirint_Kova.Forms
             var centerY = (ClientSize.Height - blockSize) / 2;
             var formWidth = ClientSize.Width;
 
-            mazeBlocks = MazeBuilder.CreateMazeBlocks(centerX, centerY, blockSize, formWidth);
+            mazeBlocks = MazeBuilder.CreateMazeBlocks(centerX, centerY, blockSize, formWidth, visibleArea);
         }
 
         private void MazeForm_KeyDown(object sender, KeyEventArgs e)
@@ -49,6 +54,30 @@ namespace Labirint_Kova.Forms
             {
                 Close();
             }
+
+            int dx = 0, dy = 0;
+
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    dy = -1;
+                    break;
+                case Keys.S:
+                    dy = 1;
+                    break;
+                case Keys.A:
+                    dx = -1;
+                    break;
+                case Keys.D:
+                    dx = 1;
+                    break;
+                default:
+                    return;
+            }
+
+            playerController.Move(dx, dy);
+            visibleArea = player.GetVisibleArea(maze);
+            MazeBlocksVisibility.UpdateMazeBlocksVisibility(mazeBlocks, visibleArea);
         }
 
         private void MazeForm_Load(object sender, EventArgs e)
