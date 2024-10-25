@@ -41,8 +41,9 @@ namespace Labirint_Kova
             rotatingPictureBox = new RotatablePictureBox
             {
                 Image = Properties.Resources.MazePng,
-                Size = new Size(2000, 2000),
-                Location = new Point(500, -100),
+                Size = new Size(500, 500),
+                Location = new Point(100, -10),
+                SizeMode = PictureBoxSizeMode.StretchImage,
             };
 
             Controls.Add(rotatingPictureBox);

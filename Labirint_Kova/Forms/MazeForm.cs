@@ -36,7 +36,7 @@ namespace Labirint_Kova.Forms
             mazeGenerator.GenerateNumerMaze();
             maze = mazeGenerator.GetMaze();
 
-            player = new Player(1, maze.GetLength(1) - 2);
+            player = new Player(maze.GetLength(0) - 2, 1);
             playerController = new PlayerController(player, maze);
             visibleArea = player.GetVisibleArea(maze);
 
@@ -48,7 +48,7 @@ namespace Labirint_Kova.Forms
         /// </summary>
         private void InitializeBlocks()
         {
-            var blockSize = 450;
+            var blockSize = 250;
             var centerX = (ClientSize.Width - blockSize) / 2;
             var centerY = (ClientSize.Height - blockSize) / 2;
             var formWidth = ClientSize.Width + 40;
