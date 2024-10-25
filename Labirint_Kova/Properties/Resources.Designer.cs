@@ -61,12 +61,93 @@ namespace Labirint_Kova.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Поздавляю! Вы прошли лабиринт!.
+        /// </summary>
+        internal static string EndGameTrue {
+            get {
+                return ResourceManager.GetString("EndGameTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Время вышло! Вы не успели пройти лабиринт!.
+        /// </summary>
+        internal static string EndGameTxtFail {
+            get {
+                return ResourceManager.GetString("EndGameTxtFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Закрыть игру.
+        /// </summary>
+        internal static string EndTxt {
+            get {
+                return ResourceManager.GetString("EndTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Лабиринт.
+        /// </summary>
+        internal static string GameName {
+            get {
+                return ResourceManager.GetString("GameName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Язык:.
+        /// </summary>
+        internal static string LanguageSett {
+            get {
+                return ResourceManager.GetString("LanguageSett", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap MazePng {
             get {
                 object obj = ResourceManager.GetObject("MazePng", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Настройки.
+        /// </summary>
+        internal static string SettingsTxt {
+            get {
+                return ResourceManager.GetString("SettingsTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Начать игру.
+        /// </summary>
+        internal static string StartTxt {
+            get {
+                return ResourceManager.GetString("StartTxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Управление.
+        /// </summary>
+        internal static string ypBtn {
+            get {
+                return ResourceManager.GetString("ypBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ходьба: w, a, s, d  Поворот вправо: e  Поворот влево: q.
+        /// </summary>
+        internal static string ypravlenie {
+            get {
+                return ResourceManager.GetString("ypravlenie", resourceCulture);
             }
         }
     }

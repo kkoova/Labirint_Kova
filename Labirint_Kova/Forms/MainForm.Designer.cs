@@ -33,6 +33,7 @@
             this.SettBtn = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ypTxt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             this.StartBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StartBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.StartBtn.Location = new System.Drawing.Point(63, 262);
+            this.StartBtn.Location = new System.Drawing.Point(63, 214);
             this.StartBtn.Name = "StartBtn";
             this.StartBtn.Size = new System.Drawing.Size(188, 33);
             this.StartBtn.TabIndex = 1;
@@ -103,6 +104,19 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // ypTxt
+            // 
+            this.ypTxt.AutoSize = true;
+            this.ypTxt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ypTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ypTxt.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ypTxt.Location = new System.Drawing.Point(66, 263);
+            this.ypTxt.Name = "ypTxt";
+            this.ypTxt.Size = new System.Drawing.Size(188, 33);
+            this.ypTxt.TabIndex = 5;
+            this.ypTxt.Text = "Управление";
+            this.ypTxt.Click += new System.EventHandler(this.ypTxt_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +124,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(212)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(814, 463);
             this.ControlBox = false;
+            this.Controls.Add(this.ypTxt);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SettBtn);
@@ -132,6 +147,7 @@
         private System.Windows.Forms.Label SettBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label ypTxt;
     }
 }
 

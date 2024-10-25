@@ -8,7 +8,7 @@ namespace Labirint_Kova.Logic
     /// </summary>
     internal class GenerateMaze
     {
-        private readonly static int[,] maze = new int[41, 21];
+        private readonly static int[,] maze = new int[41, 11];
 
         /// <summary>
         /// Генерация лабиринта

@@ -1,5 +1,8 @@
 ﻿using System.Drawing;
+using System.Web;
 using System.Windows.Forms;
+using Labirint_Kova.Forms;
+using Labirint_Kova.Logic;
 
 namespace Labirint_Kova.Models.Player
 {
@@ -9,6 +12,7 @@ namespace Labirint_Kova.Models.Player
     public class PlayerController
     {
         private readonly Player player;
+        string textEndTrue = LanguageManager.GetText("EndGameTrue");
         private readonly int[,] maze;
 
         /// <summary>
@@ -127,6 +131,8 @@ namespace Labirint_Kova.Models.Player
             {
                 player.X = newX;
                 player.Y = newY;
+
+                End();
             }
         }
 
@@ -136,7 +142,8 @@ namespace Labirint_Kova.Models.Player
 
             if (player.X == endPosition.X && player.Y == endPosition.Y)
             {
-                MessageBox.Show("Ура", "Вы прошли лабиринт!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(textEndTrue);
+                Application.Exit();
             }
         }
 

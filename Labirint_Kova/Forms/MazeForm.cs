@@ -3,6 +3,7 @@ using Labirint_Kova.Models;
 using Labirint_Kova.Models.Player;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace Labirint_Kova.Forms
@@ -25,9 +26,10 @@ namespace Labirint_Kova.Forms
         private List<MazeBlocks> mazeBlocks;
         public Direction CurrentDirection { get; set; } = Direction.Forward;
 
-        private Timer gameTimer;
+        string textEndFail;
+
         private int timeLeft;
-        private const int TotalGameTime = 3;
+        private const int TotalGameTime = 300;
 
         /// <summary>
         /// Конструктор формы лабиринта.
@@ -37,7 +39,7 @@ namespace Labirint_Kova.Forms
         public MazeForm()
         {
             InitializeComponent();
-
+            InitializeText();
             DoubleBuffered = true;
 
             mazeGenerator = new GenerateMaze();
@@ -52,7 +54,14 @@ namespace Labirint_Kova.Forms
 
             timeLeft = TotalGameTime;
         }
-
+        public void InitializeText()
+        {
+            textEndFail = LanguageManager.GetText("EndGameTxtFail");
+        }
+        public void UpdateLanguage()
+        {
+            InitializeText(); // Обновить тексты формы
+        }
         /// <summary>
         /// Инициализация блоков
         /// </summary>
@@ -197,8 +206,8 @@ namespace Labirint_Kova.Forms
             else
             {
                 gameTime.Stop();
-                MessageBox.Show("Время вышло! Вы не успели пройти лабиринт.");
-                Close();
+                MessageBox.Show(textEndFail);
+                Application.Exit();
             }
         }
     }
