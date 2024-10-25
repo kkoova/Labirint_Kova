@@ -50,30 +50,25 @@ namespace Labirint_Kova
         }
 
         /// <summary>
-        /// Создание новой формы
+        /// Создание новой формы игры
         /// </summary>
         private void StartBtn_Click(object sender, EventArgs e)
         {
-            BackPi.Visible = true;
+            Hide();
             var mazeForm = new MazeForm();
             mazeForm.ShowDialog();
+            Show();
         }
 
+        /// <summary>
+        /// Создание новой формы настроек
+        /// </summary>
         private void SettBtn_Click(object sender, EventArgs e)
         {
-            BackPi.Visible = true;
+            Hide();
             var settingsForm = new SettingsForm();
             settingsForm.ShowDialog();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            BackPi.Visible = false;
-        }
-
-        private void BackPi_ControlAdded(object sender, ControlEventArgs e)
-        {
-            BackPi.Visible = false;
+            Show();
         }
     }
 }

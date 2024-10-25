@@ -24,7 +24,7 @@
         /// </summary>
         /// <param name="maze">Лабиринт</param>
         /// <returns>Массив видимых блоков</returns>
-        public int[,] GetVisibleArea(int[,] maze)
+        public int[,] GetVisibleArea(int[,] maze, int direction)
         {
             var visibleArea = new int[4, 3];
 
@@ -34,6 +34,20 @@
                 {
                     var checkX = X + x;
                     var checkY = Y + (3 - y);
+
+                    switch (direction)
+                    {
+                        case 0:
+                            break;
+                        case -1:
+                            checkX = Y + (3 - y);
+                            checkY = X - x;
+                            break;
+                        case 1:
+                            checkX = Y + (3 - y);
+                            checkY = X + x;
+                            break;
+                    }
 
                     if (checkX >= 0 && checkX < maze.GetLength(0) && checkY >= 0 && checkY < maze.GetLength(1))
                     {

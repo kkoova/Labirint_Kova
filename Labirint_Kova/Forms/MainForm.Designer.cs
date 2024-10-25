@@ -33,9 +33,7 @@
             this.SettBtn = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BackPi = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackPi)).BeginInit();
             this.SuspendLayout();
             // 
             // ExitBtn
@@ -105,15 +103,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // BackPi
-            // 
-            this.BackPi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(117)))), ((int)(((byte)(19)))));
-            this.BackPi.Location = new System.Drawing.Point(-11, -11);
-            this.BackPi.Name = "BackPi";
-            this.BackPi.Size = new System.Drawing.Size(872, 507);
-            this.BackPi.TabIndex = 5;
-            this.BackPi.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,7 +110,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(212)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(814, 463);
             this.ControlBox = false;
-            this.Controls.Add(this.BackPi);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SettBtn);
@@ -132,7 +120,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackPi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,7 +132,6 @@
         private System.Windows.Forms.Label SettBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox BackPi;
     }
 }
 

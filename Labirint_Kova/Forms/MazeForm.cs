@@ -38,7 +38,7 @@ namespace Labirint_Kova.Forms
 
             player = new Player(maze.GetLength(0) - 2, 1);
             playerController = new PlayerController(player, maze);
-            visibleArea = player.GetVisibleArea(maze);
+            visibleArea = player.GetVisibleArea(maze, 0);
 
             InitializeBlocks();
         }
@@ -63,15 +63,18 @@ namespace Labirint_Kova.Forms
         /// </summary>
         private void MazeForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            var direction = 0;
+            if (direction > 1)
             {
-                Close();
+                direction = 0;
             }
-
             int dx = 0, dy = 0;
 
             switch (e.KeyCode)
             {
+                case Keys.Escape:
+                    Close();
+                    break;
                 case Keys.W:
                     dy = 1;
                     break;
@@ -84,12 +87,18 @@ namespace Labirint_Kova.Forms
                 case Keys.D:
                     dx = 1;
                     break;
+                case Keys.Q:
+                    direction -= 1;
+                    break;
+                case Keys.E:
+                    direction += 1;
+                    break;
                 default:
                     return;
             }
 
             playerController.Move(dx, dy);
-            visibleArea = player.GetVisibleArea(maze);
+            visibleArea = player.GetVisibleArea(maze, direction);
             MazeBlocksVisibility.UpdateMazeBlocksVisibility(mazeBlocks, visibleArea);
             Invalidate();
         }
