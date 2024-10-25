@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ExitBtn = new System.Windows.Forms.Label();
             this.StartBtn = new System.Windows.Forms.Label();
             this.SettBtn = new System.Windows.Forms.Label();
-            this.rotationTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BackPi = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackPi)).BeginInit();
             this.SuspendLayout();
             // 
             // ExitBtn
@@ -77,13 +79,9 @@
             this.SettBtn.Size = new System.Drawing.Size(168, 33);
             this.SettBtn.TabIndex = 2;
             this.SettBtn.Text = "Настройки";
+            this.SettBtn.Click += new System.EventHandler(this.SettBtn_Click);
             this.SettBtn.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.SettBtn.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
-            // 
-            // rotationTimer
-            // 
-            this.rotationTimer.Interval = 50;
-            this.rotationTimer.Tick += new System.EventHandler(this.RotationTimer_Tick);
             // 
             // label1
             // 
@@ -97,6 +95,25 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "MAZE";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Labirint_Kova.Properties.Resources.MazePng;
+            this.pictureBox1.Location = new System.Drawing.Point(388, 121);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(620, 620);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BackPi
+            // 
+            this.BackPi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(117)))), ((int)(((byte)(19)))));
+            this.BackPi.Location = new System.Drawing.Point(-11, -11);
+            this.BackPi.Name = "BackPi";
+            this.BackPi.Size = new System.Drawing.Size(872, 507);
+            this.BackPi.TabIndex = 5;
+            this.BackPi.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +121,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(212)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(814, 463);
             this.ControlBox = false;
+            this.Controls.Add(this.BackPi);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SettBtn);
             this.Controls.Add(this.StartBtn);
@@ -112,6 +131,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackPi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,8 +143,9 @@
         private System.Windows.Forms.Label ExitBtn;
         private System.Windows.Forms.Label StartBtn;
         private System.Windows.Forms.Label SettBtn;
-        private System.Windows.Forms.Timer rotationTimer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox BackPi;
     }
 }
 

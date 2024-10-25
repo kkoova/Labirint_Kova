@@ -11,42 +11,12 @@ namespace Labirint_Kova
     /// </summary>
     public partial class MainForm : Form
     {
-        private RotatablePictureBox rotatingPictureBox;
-
         /// <summary>
         /// Инициализация формы
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
-            ImageIn();
-            TimerIn();
-        }
-
-        /// <summary>
-        /// Настройка таймера
-        /// </summary>
-        private void TimerIn()
-        {
-            rotationTimer.Interval = 30;
-            rotationTimer.Tick += RotationTimer_Tick;
-            rotationTimer.Start();
-        }
-
-        /// <summary>
-        /// Создание изображения
-        /// </summary>
-        private void ImageIn()
-        {
-            rotatingPictureBox = new RotatablePictureBox
-            {
-                Image = Properties.Resources.MazePng,
-                Size = new Size(500, 500),
-                Location = new Point(100, -10),
-                SizeMode = PictureBoxSizeMode.StretchImage,
-            };
-
-            Controls.Add(rotatingPictureBox);
         }
 
         /// <summary>
@@ -84,20 +54,26 @@ namespace Labirint_Kova
         /// </summary>
         private void StartBtn_Click(object sender, EventArgs e)
         {
+            BackPi.Visible = true;
             var mazeForm = new MazeForm();
             mazeForm.ShowDialog();
         }
 
-        /// <summary>
-        /// Событие таймера
-        /// </summary>
-        private void RotationTimer_Tick(object sender, EventArgs e)
+        private void SettBtn_Click(object sender, EventArgs e)
         {
-            rotatingPictureBox.RotationAngle += 0.02f;
-            if (rotatingPictureBox.RotationAngle >= 360f)
-            {
-                rotatingPictureBox.RotationAngle = 0f;
-            }
+            BackPi.Visible = true;
+            var settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            BackPi.Visible = false;
+        }
+
+        private void BackPi_ControlAdded(object sender, ControlEventArgs e)
+        {
+            BackPi.Visible = false;
         }
     }
 }
