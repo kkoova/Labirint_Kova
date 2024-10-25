@@ -59,12 +59,16 @@
     <Compile Include="Forms\MazeForm.Designer.cs">
       <DependentUpon>MazeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\GenerateMaze.cs" />
+    <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\MazeBlocksVisibility.cs" />
     <Compile Include="Logic\MazeBuilder.cs" />
-    <Compile Include="Logic\RotatablePictureBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Models\Blocks\CeilingSection.cs" />
     <Compile Include="Models\Blocks\FloorSection.cs" />
     <Compile Include="Models\Blocks\StaticSection.cs" />
@@ -75,6 +79,7 @@
     <Compile Include="Models\Blocks\VisBlocks\Block_2_1.cs" />
     <Compile Include="Models\Blocks\VisBlocks\Block_2_3.cs" />
     <Compile Include="Models\ColorMaze.cs" />
+    <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\MazeBlocks.cs" />
     <Compile Include="Models\Player\Player.cs" />
     <Compile Include="Models\Player\PlayerController.cs" />
@@ -86,11 +91,14 @@
     <EmbeddedResource Include="Forms\MazeForm.resx">
       <DependentUpon>MazeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resourcesen.resx" />
     <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

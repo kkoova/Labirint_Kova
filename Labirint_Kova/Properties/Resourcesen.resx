@@ -117,4 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EndGameTrue" xml:space="preserve">
+    <value>Congratulations! You have passed the maze!</value>
+  </data>
+  <data name="EndGameTxtFail" xml:space="preserve">
+    <value>Time's up! You didn't have time to complete the maze!</value>
+  </data>
+  <data name="EndTxt" xml:space="preserve">
+    <value>Close the game</value>
+  </data>
+  <data name="GameName" xml:space="preserve">
+    <value>Maze</value>
+  </data>
+  <data name="LanguageSett" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="SettingsTxt" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="StartTxt" xml:space="preserve">
+    <value>Start the game</value>
+  </data>
+  <data name="ypBtn" xml:space="preserve">
+    <value>Сontrol</value>
+  </data>
+  <data name="ypravlenie" xml:space="preserve">
+    <value>Walking: w, A, S, d Right turn: e Left turn: q</value>
+  </data>
 </root>

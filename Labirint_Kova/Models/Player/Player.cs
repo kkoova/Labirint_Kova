@@ -20,11 +20,12 @@
         }
 
         /// <summary>
-        /// Создание массива видимых блоков
+        /// Создание массива видимых блоков (от направление)
         /// </summary>
         /// <param name="maze">Лабиринт</param>
+        /// <param name="direction">Направление</param>
         /// <returns>Массив видимых блоков</returns>
-        public int[,] GetVisibleArea(int[,] maze)
+        public int[,] GetVisibleArea(int[,] maze, Direction direction)
         {
             var visibleArea = new int[4, 3];
 
@@ -32,9 +33,27 @@
             {
                 for (var x = -1; x <= 1; x++)
                 {
-                    var checkX = X + x;
-                    var checkY = Y + (3 - y);
+                    int checkX = 0, checkY = 0;
 
+                    switch (direction)
+                    {
+                        case Direction.Forward:
+                            checkX = X + x;
+                            checkY = Y - (3 - y);
+                            break;
+                        case Direction.Right:
+                            checkX = X + (3 - y);
+                            checkY = Y + x;
+                            break;
+                        case Direction.Left:
+                            checkX = X - (3 - y);
+                            checkY = Y - x;
+                            break;
+                        case Direction.Backward:
+                            checkX = X - x;
+                            checkY = Y + (3 - y);
+                            break;
+                    }
                     if (checkX >= 0 && checkX < maze.GetLength(0) && checkY >= 0 && checkY < maze.GetLength(1))
                     {
                         visibleArea[y, x + 1] = maze[checkX, checkY];

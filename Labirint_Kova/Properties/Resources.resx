@@ -117,8 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EndGameTrue" xml:space="preserve">
+    <value>Поздавляю! Вы прошли лабиринт!</value>
+  </data>
+  <data name="EndGameTxtFail" xml:space="preserve">
+    <value>Время вышло! Вы не успели пройти лабиринт!</value>
+  </data>
+  <data name="EndTxt" xml:space="preserve">
+    <value>Закрыть игру</value>
+  </data>
+  <data name="GameName" xml:space="preserve">
+    <value>Лабиринт</value>
+  </data>
+  <data name="LanguageSett" xml:space="preserve">
+    <value>Язык:</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="MazePng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MazePng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingsTxt" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="StartTxt" xml:space="preserve">
+    <value>Начать игру</value>
+  </data>
+  <data name="ypBtn" xml:space="preserve">
+    <value>Управление</value>
+  </data>
+  <data name="ypravlenie" xml:space="preserve">
+    <value>Ходьба: w, a, s, d  Поворот вправо: e  Поворот влево: q</value>
   </data>
 </root>

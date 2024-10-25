@@ -11,7 +11,7 @@ namespace Labirint_Kova
     /// </summary>
     public partial class MainForm : Form
     {
-        private RotatablePictureBox rotatingPictureBox;
+        private string ypravlenie = LanguageManager.GetText("ypravlenie");
 
         /// <summary>
         /// Инициализация формы
@@ -19,33 +19,20 @@ namespace Labirint_Kova
         public MainForm()
         {
             InitializeComponent();
-            ImageIn();
-            TimerIn();
+            InitializeText();
         }
 
         /// <summary>
-        /// Настройка таймера
+        /// Настройка текста по текущему языку
         /// </summary>
-        private void TimerIn()
+        public void InitializeText()
         {
-            rotationTimer.Interval = 30;
-            rotationTimer.Tick += RotationTimer_Tick;
-            rotationTimer.Start();
-        }
-
-        /// <summary>
-        /// Создание изображения
-        /// </summary>
-        private void ImageIn()
-        {
-            rotatingPictureBox = new RotatablePictureBox
-            {
-                Image = Properties.Resources.MazePng,
-                Size = new Size(2000, 2000),
-                Location = new Point(500, -100),
-            };
-
-            Controls.Add(rotatingPictureBox);
+            label1.Text = LanguageManager.GetText("GameName");
+            StartBtn.Text = LanguageManager.GetText("StartTxt");
+            SettBtn.Text = LanguageManager.GetText("SettingsTxt");
+            ExitBtn.Text = LanguageManager.GetText("EndTxt");
+            ypTxt.Text = LanguageManager.GetText("ypBtn");
+            ypravlenie = LanguageManager.GetText("ypravlenie");
         }
 
         /// <summary>
@@ -54,6 +41,14 @@ namespace Labirint_Kova
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        /// <summary>
+        /// Обновление текста
+        /// </summary>
+        public void UpdateLanguage()
+        {
+            InitializeText();
         }
 
         /// <summary>
@@ -79,24 +74,32 @@ namespace Labirint_Kova
         }
 
         /// <summary>
-        /// Создание новой формы
+        /// Создание новой формы игры
         /// </summary>
         private void StartBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             var mazeForm = new MazeForm();
             mazeForm.ShowDialog();
         }
 
         /// <summary>
-        /// Событие таймера
+        /// Создание новой формы настроек
         /// </summary>
-        private void RotationTimer_Tick(object sender, EventArgs e)
+        private void SettBtn_Click(object sender, EventArgs e)
         {
-            rotatingPictureBox.RotationAngle += 0.02f;
-            if (rotatingPictureBox.RotationAngle >= 360f)
-            {
-                rotatingPictureBox.RotationAngle = 0f;
-            }
+            Hide();
+            var settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
+            Show();
+        }
+
+        /// <summary>
+        /// Информация об управлении
+        /// </summary>
+        private void ypTxt_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(ypravlenie);
         }
     }
 }
