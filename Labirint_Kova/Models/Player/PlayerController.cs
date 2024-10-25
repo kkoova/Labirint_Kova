@@ -19,13 +19,26 @@
             this.maze = maze;
         }
 
-        /// <summary>
-        /// Движение игрока
-        /// </summary>
-        /// <param name="dx">Путь X</param>
-        /// <param name="dy">Путь Y</param>
-        public void Move(int dx, int dy)
+        public void MoveForward(Direction direction)
         {
+            int dx = 0, dy = 0;
+
+            switch (direction)
+            {
+                case Direction.Forward:
+                    dy = -1;
+                    break;
+                case Direction.Right:
+                    dx = 1;
+                    break;
+                case Direction.Backward:
+                    dy = 1;
+                    break;
+                case Direction.Left:
+                    dx = -1;
+                    break;
+            }
+
             var newX = player.X + dx;
             var newY = player.Y + dy;
 

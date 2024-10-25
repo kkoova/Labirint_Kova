@@ -20,6 +20,7 @@ namespace Labirint_Kova.Forms
         private int[,] visibleArea;
 
         private List<MazeBlocks> mazeBlocks;
+        public Direction CurrentDirection { get; set; } = Direction.Forward;
 
         /// <summary>
         /// Конструктор формы лабиринта.
@@ -63,20 +64,13 @@ namespace Labirint_Kova.Forms
         /// </summary>
         private void MazeForm_KeyDown(object sender, KeyEventArgs e)
         {
-            var direction = 0;
-            if (direction > 1)
-            {
-                direction = 0;
-            }
-            int dx = 0, dy = 0;
-
             switch (e.KeyCode)
             {
                 case Keys.Escape:
                     Close();
                     break;
                 case Keys.W:
-                    dy = 1;
+                    playerController.MoveForward(CurrentDirection);
                     break;
                 case Keys.S:
                     dy = -1;
@@ -88,17 +82,16 @@ namespace Labirint_Kova.Forms
                     dx = 1;
                     break;
                 case Keys.Q:
-                    direction -= 1;
+                    CurrentDirection = CurrentDirection == Direction.Forward ? Direction.Left : CurrentDirection - 1;
                     break;
                 case Keys.E:
-                    direction += 1;
+                    CurrentDirection = CurrentDirection == Direction.Left ? Direction.Forward : CurrentDirection + 1;
                     break;
                 default:
                     return;
             }
 
-            playerController.Move(dx, dy);
-            visibleArea = player.GetVisibleArea(maze, direction);
+            visibleArea = player.GetVisibleArea(maze, CurrentDirection);
             MazeBlocksVisibility.UpdateMazeBlocksVisibility(mazeBlocks, visibleArea);
             Invalidate();
         }

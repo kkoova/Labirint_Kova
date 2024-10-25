@@ -78,6 +78,7 @@
     <Compile Include="Models\Blocks\VisBlocks\Block_2_1.cs" />
     <Compile Include="Models\Blocks\VisBlocks\Block_2_3.cs" />
     <Compile Include="Models\ColorMaze.cs" />
+    <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\MazeBlocks.cs" />
     <Compile Include="Models\Player\Player.cs" />
     <Compile Include="Models\Player\PlayerController.cs" />
