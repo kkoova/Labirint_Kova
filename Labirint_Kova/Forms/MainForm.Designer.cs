@@ -116,6 +116,8 @@
             this.ypTxt.TabIndex = 5;
             this.ypTxt.Text = "Управление";
             this.ypTxt.Click += new System.EventHandler(this.ypTxt_Click);
+            this.ypTxt.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.ypTxt.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // MainForm
             // 

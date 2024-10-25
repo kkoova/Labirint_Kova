@@ -3,7 +3,6 @@ using Labirint_Kova.Models;
 using Labirint_Kova.Models.Player;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace Labirint_Kova.Forms
@@ -26,7 +25,7 @@ namespace Labirint_Kova.Forms
         private List<MazeBlocks> mazeBlocks;
         public Direction CurrentDirection { get; set; } = Direction.Forward;
 
-        string textEndFail;
+        private string textEndFail;
 
         private int timeLeft;
         private const int TotalGameTime = 300;
@@ -54,14 +53,23 @@ namespace Labirint_Kova.Forms
 
             timeLeft = TotalGameTime;
         }
+
+        /// <summary>
+        /// Настройка текста по текущему языку
+        /// </summary>
         public void InitializeText()
         {
             textEndFail = LanguageManager.GetText("EndGameTxtFail");
         }
+
+        /// <summary>
+        /// Обновление языка
+        /// </summary>
         public void UpdateLanguage()
         {
-            InitializeText(); // Обновить тексты формы
+            InitializeText();
         }
+
         /// <summary>
         /// Инициализация блоков
         /// </summary>
@@ -114,40 +122,35 @@ namespace Labirint_Kova.Forms
             Invalidate();
         }
 
+        /// <summary>
+        /// Рисование минни - карты
+        /// </summary>
         private void DrawMiniMap(Graphics g)
         {
-            var startPosition = new Point(1, maze.GetLength(1) - 2);  // Начальная позиция
             var endPosition = new Point(maze.GetLength(0) - 2, 1);
-            // Координаты верхнего левого угла мини-карты
-            int miniMapStartX = Width - MiniMapSize * MiniMapCellSize - 20;
-            int miniMapStartY = 20;
+            var miniMapStartX = Width - MiniMapSize * MiniMapCellSize - 20;
+            var miniMapStartY = 20;
 
-            // Центральные координаты мини-карты (где находится игрок)
-            int centerX = MiniMapSize / 2;
-            int centerY = MiniMapSize / 2;
+            var centerX = MiniMapSize / 2;
+            var centerY = MiniMapSize / 2;
 
-            // Перебираем каждую ячейку мини-карты
-            for (int y = -centerY; y <= centerY; y++)
+            for (var y = -centerY; y <= centerY; y++)
             {
-                for (int x = -centerX; x <= centerX; x++)
+                for (var x = -centerX; x <= centerX; x++)
                 {
-                    // Рассчитываем реальную позицию в лабиринте относительно игрока
-                    int mazeX = player.X + x;
-                    int mazeY = player.Y + y;
+                    var mazeX = player.X + x;
+                    var mazeY = player.Y + y;
 
-                    // Позиция для рисования на мини-карте
-                    int drawX = miniMapStartX + (x + centerX) * MiniMapCellSize;
-                    int drawY = miniMapStartY + (y + centerY) * MiniMapCellSize;
+                    var drawX = miniMapStartX + (x + centerX) * MiniMapCellSize;
+                    var drawY = miniMapStartY + (y + centerY) * MiniMapCellSize;
 
-                    // Определяем цвет ячейки: стена, пустое пространство или игрок
                     Color cellColor;
                     if (mazeX == player.X && mazeY == player.Y)
                     {
-                        cellColor = Color.Green; // Игрок
+                        cellColor = Color.Green;
                     }
                     else if (mazeX == endPosition.X && mazeY == endPosition.Y)
                     {
-                        // Отображаем конец лабиринта
                         cellColor = Color.IndianRed;
                     }
                     else if (mazeX >= 0 && mazeX < maze.GetLength(0) && mazeY >= 0 && mazeY < maze.GetLength(1))
@@ -156,16 +159,14 @@ namespace Labirint_Kova.Forms
                     }
                     else
                     {
-                        cellColor = Color.Gray; // Вне границ лабиринта
+                        cellColor = Color.Gray;
                     }
 
-                    // Рисуем ячейку на мини-карте
                     using (Brush brush = new SolidBrush(cellColor))
                     {
                         g.FillRectangle(brush, drawX, drawY, MiniMapCellSize, MiniMapCellSize);
                     }
 
-                    // Добавляем границу к каждой ячейке мини-карты
                     g.DrawRectangle(Pens.Black, drawX, drawY, MiniMapCellSize, MiniMapCellSize);
                 }
             }
@@ -196,6 +197,9 @@ namespace Labirint_Kova.Forms
             e.Graphics.DrawString(timeText, font, brushTime, new Point(10, 10));
         }
 
+        /// <summary>
+        /// Тик таймера - обновление времени
+        /// </summary>
         private void gameTime_Tick(object sender, System.EventArgs e)
         {
             if (timeLeft > 0)

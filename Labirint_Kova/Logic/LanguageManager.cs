@@ -5,19 +5,25 @@ using Labirint_Kova.Properties;
 
 namespace Labirint_Kova.Logic
 {
-    using System.Globalization;
-    using System.Resources;
-    using System.Threading;
-
+    /// <summary>
+    /// Настройка языка приложения
+    /// </summary>
     public static class LanguageManager
     {
         private static ResourceManager resourceManager;
 
+        /// <summary>
+        /// Установка изначального языка = Русский
+        /// </summary>
         static LanguageManager()
         {
             SetLanguage("ru");
         }
 
+        /// <summary>
+        /// Уставновка нового языка
+        /// </summary>
+        /// <param name="language">Язык</param>
         public static void SetLanguage(string language)
         {
             if (language == "ru")
@@ -30,8 +36,6 @@ namespace Labirint_Kova.Logic
             }
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
         }
-
         public static string GetText(string key) => resourceManager.GetString(key);
     }
-
 }

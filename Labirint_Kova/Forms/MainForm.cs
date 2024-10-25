@@ -11,7 +11,8 @@ namespace Labirint_Kova
     /// </summary>
     public partial class MainForm : Form
     {
-        string ypravlenie = LanguageManager.GetText("ypravlenie");
+        private string ypravlenie = LanguageManager.GetText("ypravlenie");
+
         /// <summary>
         /// Инициализация формы
         /// </summary>
@@ -21,6 +22,9 @@ namespace Labirint_Kova
             InitializeText();
         }
 
+        /// <summary>
+        /// Настройка текста по текущему языку
+        /// </summary>
         public void InitializeText()
         {
             label1.Text = LanguageManager.GetText("GameName");
@@ -30,6 +34,7 @@ namespace Labirint_Kova
             ypTxt.Text = LanguageManager.GetText("ypBtn");
             ypravlenie = LanguageManager.GetText("ypravlenie");
         }
+
         /// <summary>
         /// Выход из приложение по нажатию кнопки
         /// </summary>
@@ -37,10 +42,15 @@ namespace Labirint_Kova
         {
             Close();
         }
+
+        /// <summary>
+        /// Обновление текста
+        /// </summary>
         public void UpdateLanguage()
         {
-            InitializeText(); // Обновить тексты формы
+            InitializeText();
         }
+
         /// <summary>
         /// Изменение цвета текста по наведению мыши
         /// </summary>
@@ -84,6 +94,9 @@ namespace Labirint_Kova
             Show();
         }
 
+        /// <summary>
+        /// Информация об управлении
+        /// </summary>
         private void ypTxt_Click(object sender, EventArgs e)
         {
             MessageBox.Show(ypravlenie);

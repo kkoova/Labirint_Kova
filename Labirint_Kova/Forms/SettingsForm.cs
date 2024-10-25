@@ -3,13 +3,23 @@ using Labirint_Kova.Logic;
 
 namespace Labirint_Kova.Forms
 {
+    /// <summary>
+    /// Форма настроек
+    /// </summary>
     public partial class SettingsForm : Form
     {
+        /// <summary>
+        /// Инициализация формы
+        /// </summary>
         public SettingsForm()
         {
             InitializeComponent();
             InitializeText();
         }
+
+        /// <summary>
+        /// Обновление текста
+        /// </summary>
         public void InitializeText()
         {
             label1.Text = LanguageManager.GetText("GameName");
@@ -17,14 +27,20 @@ namespace Labirint_Kova.Forms
             label2.Text = LanguageManager.GetText("LanguageSett");
         }
 
+        /// <summary>
+        /// Заркытие формы
+        /// </summary>
         private void ExitBtn_Click(object sender, System.EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Обновление языка текста
+        /// </summary>
         private void languageComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            string selectedLanguage = languageComboBox.SelectedItem.ToString();
+            var selectedLanguage = languageComboBox.SelectedItem.ToString();
             LanguageManager.SetLanguage(selectedLanguage);
 
             // Обновляем текст на текущей форме

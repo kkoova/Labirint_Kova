@@ -1,7 +1,5 @@
 ﻿using System.Drawing;
-using System.Web;
 using System.Windows.Forms;
-using Labirint_Kova.Forms;
 using Labirint_Kova.Logic;
 
 namespace Labirint_Kova.Models.Player
@@ -12,7 +10,7 @@ namespace Labirint_Kova.Models.Player
     public class PlayerController
     {
         private readonly Player player;
-        string textEndTrue = LanguageManager.GetText("EndGameTrue");
+        private readonly string textEndTrue = LanguageManager.GetText("EndGameTrue");
         private readonly int[,] maze;
 
         /// <summary>
@@ -26,102 +24,119 @@ namespace Labirint_Kova.Models.Player
             this.maze = maze;
         }
 
+        /// <summary>
+        /// Движение в зависимостьи от направление камеры (Вперед)
+        /// </summary>
+        /// <param name="direction">Направление</param>
         public void MoveForward(Direction direction)
         {
             int dx = 0, dy = 0;
 
-            // Определяем смещение в зависимости от направления взгляда
             switch (direction)
             {
                 case Direction.Forward:
-                    dy = -1; // Вперёд (Y уменьшается)
+                    dy = -1;
                     break;
                 case Direction.Right:
-                    dx = 1; // Вправо (X увеличивается)
+                    dx = 1;
                     break;
                 case Direction.Backward:
-                    dy = 1; // Назад (Y увеличивается)
+                    dy = 1;
                     break;
                 case Direction.Left:
-                    dx = -1; // Влево (X уменьшается)
+                    dx = -1;
                     break;
             }
 
             TryMove(dx, dy);
         }
 
+        /// <summary>
+        /// Движение в зависимостьи от направление камеры (Назад)
+        /// </summary>
+        /// <param name="direction">Направление</param>
         public void MoveBackward(Direction direction)
         {
             int dx = 0, dy = 0;
 
-            // Определяем смещение в зависимости от направления взгляда
             switch (direction)
             {
                 case Direction.Forward:
-                    dy = 1; // Назад (Y увеличивается)
+                    dy = 1;
                     break;
                 case Direction.Right:
-                    dx = -1; // Влево (X уменьшается)
+                    dx = -1;
                     break;
                 case Direction.Backward:
-                    dy = -1; // Вперёд (Y уменьшается)
+                    dy = -1;
                     break;
                 case Direction.Left:
-                    dx = 1; // Вправо (X увеличивается)
+                    dx = 1;
                     break;
             }
 
             TryMove(dx, dy);
         }
 
+        /// <summary>
+        /// Движение в зависимостьи от направление камеры (Вперед)
+        /// </summary>
+        /// <param name="direction">Направление</param>
         public void MoveLeft(Direction direction)
         {
             int dx = 0, dy = 0;
 
-            // Определяем смещение в зависимости от направления взгляда
             switch (direction)
             {
                 case Direction.Forward:
-                    dx = -1; // Влево (X уменьшается)
+                    dx = -1;
                     break;
                 case Direction.Right:
-                    dy = -1; // Вперёд (Y уменьшается)
+                    dy = -1;
                     break;
                 case Direction.Backward:
-                    dx = 1; // Вправо (X увеличивается)
+                    dx = 1;
                     break;
                 case Direction.Left:
-                    dy = 1; // Назад (Y увеличивается)
+                    dy = 1;
                     break;
             }
 
             TryMove(dx, dy);
         }
 
+        /// <summary>
+        /// Движение в зависимостьи от направление камеры (Вперед)
+        /// </summary>
+        /// <param name="direction">Направление</param>
         public void MoveRight(Direction direction)
         {
             int dx = 0, dy = 0;
 
-            // Определяем смещение в зависимости от направления взгляда
             switch (direction)
             {
                 case Direction.Forward:
-                    dx = 1; // Вправо (X увеличивается)
+                    dx = 1;
                     break;
                 case Direction.Right:
-                    dy = 1; // Назад (Y увеличивается)
+                    dy = 1;
                     break;
                 case Direction.Backward:
-                    dx = -1; // Влево (X уменьшается)
+                    dx = -1;
                     break;
                 case Direction.Left:
-                    dy = -1; // Вперёд (Y уменьшается)
+                    dy = -1;
                     break;
             }
 
             TryMove(dx, dy);
         }
 
+        /// <summary>
+        /// Попытка движения игрока
+        /// </summary>
+        /// <param name="dx">Движение X</param>
+        /// <param name="dy">Движение Y</param>
         private void TryMove(int dx, int dy)
         {
             var newX = player.X + dx;
@@ -136,6 +151,9 @@ namespace Labirint_Kova.Models.Player
             }
         }
 
+        /// <summary>
+        /// Выход из лабиринта
+        /// </summary>
         private void End()
         {
             var endPosition = new Point(maze.GetLength(0) - 2, 1);
