@@ -1,4 +1,7 @@
-﻿namespace Labirint_Kova.Models.Player
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Labirint_Kova.Models.Player
 {
     /// <summary>
     /// Контролер игрока
@@ -23,22 +26,100 @@
         {
             int dx = 0, dy = 0;
 
+            // Определяем смещение в зависимости от направления взгляда
             switch (direction)
             {
                 case Direction.Forward:
-                    dy = -1;
+                    dy = -1; // Вперёд (Y уменьшается)
                     break;
                 case Direction.Right:
-                    dx = 1;
+                    dx = 1; // Вправо (X увеличивается)
                     break;
                 case Direction.Backward:
-                    dy = 1;
+                    dy = 1; // Назад (Y увеличивается)
                     break;
                 case Direction.Left:
-                    dx = -1;
+                    dx = -1; // Влево (X уменьшается)
                     break;
             }
 
+            TryMove(dx, dy);
+        }
+
+        public void MoveBackward(Direction direction)
+        {
+            int dx = 0, dy = 0;
+
+            // Определяем смещение в зависимости от направления взгляда
+            switch (direction)
+            {
+                case Direction.Forward:
+                    dy = 1; // Назад (Y увеличивается)
+                    break;
+                case Direction.Right:
+                    dx = -1; // Влево (X уменьшается)
+                    break;
+                case Direction.Backward:
+                    dy = -1; // Вперёд (Y уменьшается)
+                    break;
+                case Direction.Left:
+                    dx = 1; // Вправо (X увеличивается)
+                    break;
+            }
+
+            TryMove(dx, dy);
+        }
+
+        public void MoveLeft(Direction direction)
+        {
+            int dx = 0, dy = 0;
+
+            // Определяем смещение в зависимости от направления взгляда
+            switch (direction)
+            {
+                case Direction.Forward:
+                    dx = -1; // Влево (X уменьшается)
+                    break;
+                case Direction.Right:
+                    dy = -1; // Вперёд (Y уменьшается)
+                    break;
+                case Direction.Backward:
+                    dx = 1; // Вправо (X увеличивается)
+                    break;
+                case Direction.Left:
+                    dy = 1; // Назад (Y увеличивается)
+                    break;
+            }
+
+            TryMove(dx, dy);
+        }
+
+        public void MoveRight(Direction direction)
+        {
+            int dx = 0, dy = 0;
+
+            // Определяем смещение в зависимости от направления взгляда
+            switch (direction)
+            {
+                case Direction.Forward:
+                    dx = 1; // Вправо (X увеличивается)
+                    break;
+                case Direction.Right:
+                    dy = 1; // Назад (Y увеличивается)
+                    break;
+                case Direction.Backward:
+                    dx = -1; // Влево (X уменьшается)
+                    break;
+                case Direction.Left:
+                    dy = -1; // Вперёд (Y уменьшается)
+                    break;
+            }
+
+            TryMove(dx, dy);
+        }
+
+        private void TryMove(int dx, int dy)
+        {
             var newX = player.X + dx;
             var newY = player.Y + dy;
 
@@ -46,6 +127,16 @@
             {
                 player.X = newX;
                 player.Y = newY;
+            }
+        }
+
+        private void End()
+        {
+            var endPosition = new Point(maze.GetLength(0) - 2, 1);
+
+            if (player.X == endPosition.X && player.Y == endPosition.Y)
+            {
+                MessageBox.Show("Ура", "Вы прошли лабиринт!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

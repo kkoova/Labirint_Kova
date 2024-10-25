@@ -38,7 +38,7 @@
                     {
                         case Direction.Forward:
                             checkX = X + x;
-                            checkY = Y + (3 - y);
+                            checkY = Y - (3 - y);
                             break;
                         case Direction.Right:
                             checkX = X + (3 - y);

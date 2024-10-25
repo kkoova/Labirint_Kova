@@ -66,6 +66,7 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\GenerateMaze.cs" />
+    <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\MazeBlocksVisibility.cs" />
     <Compile Include="Logic\MazeBuilder.cs" />
     <Compile Include="Models\Blocks\CeilingSection.cs" />
@@ -93,6 +94,8 @@
     <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Language\Resources.en.resx" />
+    <EmbeddedResource Include="Language\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

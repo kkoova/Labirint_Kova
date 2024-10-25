@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.gameTime = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // gameTime
+            // 
+            this.gameTime.Enabled = true;
+            this.gameTime.Interval = 1000;
+            this.gameTime.Tick += new System.EventHandler(this.gameTime_Tick);
             // 
             // MazeForm
             // 
@@ -48,5 +56,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer gameTime;
     }
 }
